@@ -1,0 +1,75 @@
+@import url("http://fonts.googleapis.com/css?family=Lato:300,300italic,700&amp;subset=latin,latin-ext");
+@import '_mixins';
+@import '_variables';
+
+body {
+   font: $size-of-font "Lato", sans-serif;
+   margin: 0 auto;
+   width: ($width-of-figure + (4 * $padding-width-of-figure)) * $amount-of-figures;
+}
+
+header {
+   text-align: center;
+
+   h1 {
+      font-size: 2 * $size-of-font;
+   }
+}
+
+figure {
+   @include border-radius(100%);
+   @include box-shadow(10px, 10px, 12px, 0, rgba(0,0,0,0.5));
+   color: transparent;
+   float: left;
+   height: $height-of-figure;
+   margin: $margin-side-of-figure;
+   opacity: 1;
+   width: $width-of-figure;
+
+   &>figcaption {
+      @include border-radius(100%);
+      @include transition(all, 250ms);
+      height: $height-of-figcaption;
+      padding: $padding-top-of-figcaption $padding-width-of-figure 0;
+      text-align: center;
+      width: $width-of-figcaption;
+
+      &>a {
+         color: inherit;
+         text-decoration: none;
+      }
+   }
+
+   &>figcaption:hover {
+      background-color: rgba(200, 200, 200, 0.85);
+      color: rgb(0, 25, 255);
+   }
+
+   &:nth-child(1) {
+      background: transparent url("../img/kookaburra-600-600.jpg") no-repeat center center;
+      background-size: cover;
+
+      &:hover {
+         @include box-shadow(10px, 10px, 12px, 1px, black);
+         opacity: 1;
+      }
+   }
+   &:nth-child(2) {
+      background: transparent url("../img/koala-600-600.jpg") no-repeat center center;
+      background-size: cover;
+
+      &:hover {
+         @include box-shadow(10px, 10px, 12px, 1px, black);
+         opacity: 1;
+      }
+   }
+   &:nth-child(3) {
+      background: transparent url("../img/wallabies-600-600.jpg") no-repeat center center;
+      background-size: cover;
+
+      &:hover {
+         @include box-shadow(10px, 10px, 12px, 1px, black);
+         opacity: 1;
+      }
+   }
+}

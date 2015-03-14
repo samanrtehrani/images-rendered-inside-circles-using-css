@@ -1,0 +1,59 @@
+//
+// This variable is used to define the width of <figure>, and is also used as the
+// anchor variable that scales the entire page. Increase/decrease this variable to
+// increase/decrease the size of the images, circles, fonts, and spacing.
+//
+$width-of-figure: 192px;
+
+//
+// The <figure>’s height and width must be the same in order to create perfect
+// circles. Thus, the assignment of <figure> width to <figure> height.
+//
+$height-of-figure: $width-of-figure;
+
+//
+// The left and right padding of <figure> are always 10 pixels; they do not scale
+// with changes to $width-of-figure.
+//
+$padding-width-of-figure: 10px;
+
+//
+// The side margins of each <figure> are twice the side padding of each <figure>.
+//
+$margin-side-of-figure: (2 * $padding-width-of-figure);
+
+//
+// Subtract twice the padding allocated to <figure> from the width of <figure> and
+// assign that value to the width of <figcaption>.
+//
+$width-of-figcaption: $width-of-figure - (2 * $padding-width-of-figure);
+
+//
+// Get the horizontal middle of <figure> ($height-of-figure / 2) then subtract 10
+// pixels, which is a rough visual estimate for the size of the font. This value
+// becomes the top padding of <figcaption> in order to render the single-line content
+// along the middle of the image.
+//
+$padding-top-of-figcaption: ($height-of-figure / 2) - 10;
+
+//
+// Now that the top padding of <figcaption> has been calculated (in the previous
+// assignment), I just need to subtract it from the height of <figure> and assign the
+// resulting value to the height of <figcaption>.
+//
+$height-of-figcaption: $height-of-figure - $padding-top-of-figcaption;
+
+//
+// The initial value of $width-of-figure is 192 pixels. Dividing it by 12 yields a
+// value of 16 pixels, which is the common base font size for all browsers. To
+// increase the font size, decrease the divisor; to decrease the font size, increase
+// the divisor.
+//
+$size-of-font: $width-of-figure / 12;
+
+//
+// The width of <body> is the addition of the amount of <figure>s included in the
+// document. In this case, there are 3 <figure>s. If I were to add, for example, 2
+// more figures, I would increase the following variable to 5.
+//
+$amount-of-figures: 3;
