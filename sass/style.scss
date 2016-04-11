@@ -16,7 +16,7 @@ header {
    }
 }
 
-figure {
+figure{
    @include border-radius(100%);
    @include box-shadow(10px, 10px, 12px, 0, rgba(0,0,0,0.5));
    color: transparent;
@@ -25,7 +25,10 @@ figure {
    margin: $margin-side-of-figure;
    opacity: 1;
    width: $width-of-figure;
-
+   &:hover {
+      @include box-shadow(10px, 10px, 12px, 1px, black);
+      opacity: 1;
+   }
    &>figcaption {
       @include border-radius(100%);
       @include transition(all, 250ms);
@@ -48,28 +51,31 @@ figure {
    &:nth-child(1) {
       background: transparent url("../img/kookaburra-600-600.jpg") no-repeat center center;
       background-size: cover;
-
-      &:hover {
-         @include box-shadow(10px, 10px, 12px, 1px, black);
-         opacity: 1;
-      }
    }
    &:nth-child(2) {
       background: transparent url("../img/koala-600-600.jpg") no-repeat center center;
       background-size: cover;
-
-      &:hover {
-         @include box-shadow(10px, 10px, 12px, 1px, black);
-         opacity: 1;
-      }
    }
    &:nth-child(3) {
       background: transparent url("../img/wallabies-600-600.jpg") no-repeat center center;
       background-size: cover;
-
-      &:hover {
-         @include box-shadow(10px, 10px, 12px, 1px, black);
-         opacity: 1;
-      }
+   }
+   &:nth-child(4) {
+         &>img{
+            position: absolute; //also can be set to relative and given float.
+            z-index: 1;
+            @include border-radius(100%);
+            @include box-shadow(10px, 10px, 12px, 0, rgba(0,0,0,0.5));
+            width: $width-of-figure;
+            height: $height-of-figure;
+            object-fit: cover;
+            object-position: 50% 50%;
+            color: transparent;
+            transition: all 150ms;
+         }
+         &>figcaption{
+            position: relative; //just added in order to get z-index property.
+            z-index: 2;
+         }
    }
 }
